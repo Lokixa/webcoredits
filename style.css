@@ -1,0 +1,121 @@
+html {
+
+    background-image: url(https://media.discordapp.net/attachments/453624337099128834/963491679111872562/ezgif-3-0e154497ef.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: white;
+    background-size: cover;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: "MS UI Gothic";
+    padding: 0px;
+    cursor: url(https://cdn.discordapp.com/attachments/453624337099128834/964233504164544572/ezgif-4-66e7e08222.gif), auto;
+}
+
+ body {
+     width: 900px;
+     position: relative;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+  p {
+     margin: 10px;
+ }
+ 
+  .table1 {
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
+     border-spacing: 0px;
+     border-collapse: collapse;
+     width: 880px;
+ }
+ 
+  .table1 td {
+     vertical-align: top;
+     border: none;
+     padding: 0px;
+     position: relative;
+ }
+  .table1 tr {
+     vertical-align: top;
+     border: none;
+     padding: 0px;
+     position: relative;
+ }
+
+ .headbox {
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 10px;
+     background-image: url();
+     background-size: auto 70px;
+     background-color: #F9F7F5;
+     border: 3px solid #B6A898;
+     border-radius: 4px;
+     height: 50px;
+     width: 854px;
+     position: relative;
+     padding: 10px;
+ }
+
+ .footbox {
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 10px;
+     width: 900px;
+     padding: 0px;
+     margin-bottom:20px;
+     text-align: center;
+ }
+
+ .titleimg {
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
+     position: relative;
+     bottom: 30px;
+     z-index: 10;
+ }
+
+ .bar1 {
+     background-color: #F9F7F5;
+     border: 3px solid #B6A898;
+     border-radius: 4px;
+     padding: 10px;
+     width: 160px;
+     margin-top: 8px;
+ }
+
+ .bar2 {
+     background-color: #F9F7F5;
+     border: 3px solid #B6A898;
+     border-radius: 4px;
+     width: 180px;
+     margin-top: 8px;
+     padding: 0px;
+ }
+
+ .mainbox {
+     background-color: #F9F7F5;
+     border: 3px solid #B6A898;
+     border-radius: 4px;
+     padding: 10px;
+     width: 660px;
+     margin-left: 8px;
+     margin-top: 8px;
+     position: relative;
+ }
+
+ .hrft {
+     margin: 20px;
+     width: 600px;
+ }
+
+ .audioplayer {
+     width: 180px;
+     height: 30px;
+     top: 0px;
+     left: 0px;
+ }

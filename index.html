@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webcore edit maker</title>
+	  <script type="text/javascript" src="webm-writer.js"></script>
+
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	  <link rel="stylesheet" href="style.css" >
+	  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <style>
+    .window {
+        
+
+            border-radius: 4px;
+            position: relative;
+            padding: 2px;
+            width: 680px;
+            margin-left: 8px;
+            margin-top: 8px;
+  
+            background-repeat: no-repeat;
+            background-size: 200px;
+        }
+        .result {
+       border-radius: 4px;
+     padding: 2px;
+     width: 679px;
+     height: 520px;
+     z-index: 9;
+     position: absolute;margin:auto;
+}
+
+
+    </style>
+<style type="text/css">
+
+.drag{
+position:relative;
+cursor:hand;
+z-index: 100;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Drag and Drop Script: (c) Dynamic Drive (http://www.dynamicdrive.com)
+* Please keep this notice intact
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+var dragobject={
+z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+initialize:function(){
+document.onmousedown=this.drag
+document.onmouseup=function(){this.dragapproved=0}
+},
+drag:function(e){
+var evtobj=window.event? window.event : e
+this.targetobj=window.event? event.srcElement : e.target
+if (this.targetobj.id=="drag"){
+this.dragapproved=1
+if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+this.offsetx=parseInt(this.targetobj.style.left)
+this.offsety=parseInt(this.targetobj.style.top)
+this.x=evtobj.clientX
+this.y=evtobj.clientY
+if (evtobj.preventDefault)
+evtobj.preventDefault()
+document.onmousemove=dragobject.moveit
+}
+},
+moveit:function(e){
+var evtobj=window.event? window.event : e
+if (this.dragapproved==1){
+this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+return false
+}
+}
+}
+
+dragobject.initialize()
+
+</script>
+  </head>
+  
+<body>
+<div id="drag" style="margin-left: auto; margin-right: auto; margin-top: 10px;background-image: url(); background-size: auto 70px; border-radius: 4px; height: 70px; width: 874px; position: relative; padding: 2px;" class=" window">
+<div id="drag" style="pointer-events: none;
+user-select: none;" class="title-bar">
+    <div id="drag" class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+<img id="drag" src="https://cdn.discordapp.com/attachments/453624337099128834/963175448966221875/1854393_182a2.gif" class="titleimg"> </div>
+
+<table class="table1">
+        <tbody><tr>
+<td>
+                <div id="drag" style="border-radius: 4px;
+                padding: 2px;
+                width: 160px;
+                margin-top: 8px;" class="window">
+                <div style="pointer-events: none;
+user-select: none;"class="title-bar">
+    <div class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+
+                    <span id="rightbarinner">
+
+
+
+    <style>
+        body {
+            font-family: "MS Gothic";
+        }
+
+        .navheader {
+            font-family: "MS UI Gothic";
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            margin-bottom: 0px;
+
+            padding: 3px;
+            border-radius: 10px;
+        }
+
+        .navlink {
+            font-size: 13px;
+            line-height: 20px;
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navlink:hover {
+            color: #ffd600;
+        }
+
+        .collapsible {
+            font-size: 13px;
+            line-height: 20px;
+            display: block;
+            text-decoration: none;
+            color: black;
+            vertical-align: text-top;
+        }
+
+        .collapsible2 {
+            font-size: 13px;
+            line-height: 20px;
+            display: block;
+            text-decoration: none;
+            color: black;
+            vertical-align: text-top;
+        }
+
+        .collapsible:hover {
+            color: #ffd600;
+            cursor: pointer;
+        }
+
+        .collapsible2:hover {
+            color: #ffd600;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 0px 10px;
+            display: none;
+            overflow: hidden;
+        }
+
+        .floatpx {
+            vertical-align: text-top;
+        }
+
+    </style>
+
+
+
+
+    <span class="navheader">Navigation</span>
+    <a href="https://webcoredits.neocities.org/index.html" class="navlink"><img src=""> Home </a>
+    <a href="" class="navlink"><img src=""> About Me </a>
+    <a href="" class="navlink"><img src=""> Blog </a>
+    <a href="" class="navlink"><img src=""> My Music</a>
+    <a class="collapsible" type="button"><img src=""> E-Shrines</a>
+    <div class="content">
+        <a href="" class="navlink"><img src=""> not yet</a>
+    </div>
+    <a class="collapsible2" type="button"><img src=""> My Collections </a>
+    <div class="content">
+        <a href="" class="navlink"><img src=""> not yet </a>
+
+    </div>
+
+    <a href="" class="navlink"><img src=""> Web Links </a>
+
+    <hr>
+    <span class="navheader"> Outgoing </span>
+    <a href="" class="navlink"><img src=""> Guestbook </a>
+    <a href="" class="navlink"><img src=""> Discord Server </a>
+    <a href="" class="navlink"><img src=""> Site Profile </a>
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+
+    </script>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible2");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+
+    </script>
+
+
+
+</span>
+                    <hr>
+
+                </div>
+                <div style="border-radius: 4px;
+     width: 180px;
+     margin-top: 8px;
+     padding: 0px;" class="window">
+                    <img src="https://cdn.discordapp.com/attachments/910314863975354389/929345316539473960/0F4250FD-D5E6-40BF-B366-C0EC00348BF5.gif" style="width:180px;">
+                    <a href=""><img src="https://zanarkand.neocities.org/foryou/ads/300x250(4).gif" style=" width:180px;"></a>
+                    <a href=""><img src="https://zanarkand.neocities.org/foryou/ads/300x250(3).gif" style=" width:180px;"></a>
+
+
+                </div>
+
+
+                <div id="drag" style="border-radius: 4px;
+     width: 180px;
+     margin-top: 8px;
+     padding: 2px;" class="window">
+     <div style="pointer-events: none;
+user-select: none;"  class="title-bar">
+    <div class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+    
+  </div>
+                    <audio controls=""  loop="" class="audioplayer">
+                        <source src="https://cdn.discordapp.com/attachments/453624337099128834/963880893817184276/The_Perfect_Girl_-_Mareux_slowed__reverb.mp3">
+                    </audio>
+                    <marquee scrollamount="2">perfect girl.mp3</marquee>
+                </div>
+
+
+                <script>
+                    var warp = [
+                        '/index.html',
+                        '/about_me.html',
+                        '/weblog.html',
+                        '/shrines/beaniebabies.html',
+                        '/shrines/pokemon.html',
+                        '/shrines/consoles.html',
+                        '/shrines/cdcollection.html',
+                        '/shrines/pets.html',
+                        '/links.html',
+                        '/blinkies.html',
+                        '/stickers.html',
+                        '/toybox.html',
+                        '/adopt.html',
+                        '/materials.html',
+                        '/navlinkads.html',
+                        '/join-weebring.html',
+                        '/awards.html',
+                        '/fridge.html',
+                        '/cake.html',
+                        '/nesquik.html',
+                        '/cola.html',
+                        '/apples.html',
+                        '/fish.html',
+                        '/hentai.html'
+                    ];
+
+                    function warpStar() {
+                        var i = parseInt(Math.random() * warp.length);
+                        location.href = warp[i];
+                    }
+
+                </script>
+
+                <marquee behavior="alternate" scrollamount="2">feel free to have a snack!</marquee>
+
+                <div style="border-radius: 4px;
+     width: 180px;
+     margin-top: 8px;
+     padding: 2px;" class="window">
+     <div  class="title-bar">
+    <div class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+    
+  </div>
+                    <img src="https://cdn.discordapp.com/attachments/453624337099128834/964135843247824956/wired.gif" style="width:180px;">
+                    <img src="" style="width:180px; margin-top:-3px;">
+                    <img src="" style="width:180px; margin-top:-6px;">
+                    <img src="" style="width:180px; margin-top:-3px;">
+                    <img src="" style="width:180px; margin-top:-3px; margin-bottom:-2px;">
+                    <img src="" style="width:180px; margin-bottom:-3px">
+                </div>
+            </td>
+            <td>
+                <div class="window" style="margin-bottom:8px;" id="drag">
+                
+             <!--<div style="margin-left:160px; "> -->     
+             
+                    <div style="pointer-events: none;
+user-select: none;" class="title-bar">
+                        <div class="title-bar-text"></div>
+                           <div style="pointer-events: auto;"class="title-bar-controls">
+                          <button aria-label="Minimize"></button>
+                            <button aria-label="Maximize"></button>
+                          <button aria-label="Close"></button>
+                         </div>
+                        </div>
+                        <div id="drag" class="window-body">
+                        <h1 id="drag" style="text-align: center; margin-top:auto;"><img src="" class="stargif"> WELCOME WEB TRAVELER! <img src="https://i.postimg.cc/DZNNmS4x/sadnyas.gif" class="stargif"></h1>
+                        </div>
+                    </div>
+
+                   
+                    <a href=""><img src="" style="position:absolute; bottom:10px; right:25px;"></a>
+                 </div>
+
+                <img src="https://web.archive.org/web/20091027081800im_/http://hk.geocities.com/meelin292002/ani_line_star2_rainbow.gif" style="margin-top:8px; margin-left:5px; display:block; width:693px;">
+
+                <div id="drag" class="window" style="border-radius: 4px;
+     padding: 2px;
+     width: 680px;
+     margin-left: 8px;
+     margin-top: 8px;
+     position: relative;margin-bottom:10px;">
+     <div style="pointer-events: none;
+user-select: none;" class="title-bar">
+    <div class="title-bar-text">Input</div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+
+  </div>
+  <div style="position: relative;
+  left: 100px";class="video-block">
+        <canvas id="canvas" width="500" height="500"  ></canvas>
+    </div>
+    <div style="margin:15px; "class="butoni">
+      <div style="margin-left: 20px;  "class="butoni2">
+    	<button  style="height:50px; width:150px;  font-weight:bold; font-size:14px" onclick="document.getElementById('file-input').click();">Select pictures</button>
+	<input id="file-input" type="file" name="file" onchange="showKonataPictures(this)" style="display: none;" multiple/>
+	
+	<button style="height:50px; width:150px; font-weight:bold; font-size:14px" onclick="document.getElementById('audio-input').click();">Select Audio</button>
+	<input id="audio-input" type="file" name="file" onchange="setAudioTrack(this)" style="display:none;"  accept="audio/mpeg"/>
+	
+	<button style="height:50px; width:150px; font-weight:bold; font-size:14px" onclick="processWebm()">Make Video</button>
+
+	<button style="height:50px; width:150px; font-weight:bold; font-size:14px" onclick="resetApp()">Clear</button>
+	</div>
+	<div style="margin-top:15px; transform: scale(1,1.5); "class="sliderche">
+	<div class="slidecontainer">
+		<input type="range" min="1" max="60" value="30" class="slider" id="slider" onchange="changeFramerate()">
+		</div>
+
+	</div>
+	
+	</div>
+	<div style="margin-left:290px;" class="slide-label">
+	<label style=" font-weight:bold; font-size:30px" for="slider" id="slider-label">30 FPS</label>
+	</div>
+	<p id="image-loaded"></p>
+	</div>
+	
+                    <img src="" style="position:absolute; bottom:0px; left:-15px; height:210px;">
+                    <img src="" style="height:50px; position:absolute; top:-15px;">
+                    <div class="updatebox">
+                        
+                    </div>
+                    <img src="" style="position:absolute; top:27px; right:10px; z-index:2">
+                    <img src="" style="position:absolute; right:130px; top:220px;">
+                    <img src="" style="position:absolute; top:218px; right:20px; height:50px;">
+                </div>
+
+
+                <marquee id="buttonscroll" scrollamount="4" scrolldelay="90">
+
+
+
+    <style>
+        .butnpos {
+            vertical-align: text-top;
+            width: 88px;
+            height: 31px;
+            margin-bottom:4px;
+        }
+    </style>
+
+
+
+
+     <img class="hov" src="https://districts.neocities.org/images/sitebuttons/zanarkand2.gif">
+<img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton16.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton7.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton40.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton39.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton36.png">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135985833193512/vNaQ41G.gif">
+
+
+
+
+</marquee>
+
+                <div id="drag" class="window" style="border-radius: 4px;
+     padding: 2px;
+     width: 680px;
+     margin-left: 8px;
+     margin-top: 8px;
+     position: relative;margin-bottom:10px;">
+
+                
+  <div style="position: absolute; margin: auto;
+  left: 15px;  z-index:1; top: 2px"; class="video-block">
+        <video controls loop muted autoplay width="660" height="500"  id='video-fortnite' type="video/webm"></video>
+    </div>
+    <img src="https://cdn.discordapp.com/attachments/766365167633563678/964134625754624011/Divine_Light_Border.png" style="margin:auto; display:block;  z-index: 9;
+  position: relative; float: none; pointer-events: none;
+user-select: none; width:680px; height: 520px;">
+
+     
+     <!--<div style="position: relative; margin: auto;
+  left: 100px; top: 2px height:"; class="video-block">
+        <video controls loop muted autoplay width="500" height="500"  id='video-fortnite' type="video/webm"></video>
+    </div>  -->  
+
+       
+
+                 
+</div>
+
+                <marquee id="buttonscroll2" style="margin-left:9px;" direction="right" scrollamount="4" scrolldelay="90">
+
+
+
+    <style>
+        .butnpos {
+            vertical-align: text-top;
+            width: 88px;
+            height: 31px;
+            margin-bottom: 4px;
+        }
+
+    </style>
+
+
+
+
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135750104936488/windowsxp.gif">
+<img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135824448970782/www.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135889896898630/windows98.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135717498400778/xp.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135403521187940/rena.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135139636551690/neko.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964135045491224596/lovelydesigns.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134995897778186/lainpower.gif">
+<img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134614119612416/firefox2.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134456917131295/doom.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134380203311134/cuteanimegirls.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134218194096178/bookmark2.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134174233616394/blender.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964134151286571018/bestviewed.gif">
+    <img class="hov" src="https://cdn.discordapp.com/attachments/453624337099128834/964133897493438464/7z.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton16.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton7.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton40.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton39.gif">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton36.png">
+    <img class="hov" src="https://zanarkand.neocities.org/foryou/fubutton22.gif">
+    <img class="hov" src="https://districts.neocities.org/images/sitebuttons/zanarkand2.gif">
+    <img class="hov" src="https://naomis-world.neocities.org/other/miaow.gif">
+    <img class="hov" src="https://naomis-world.neocities.org/other/cat.png">
+    <img class="hov" src="https://naomis-world.neocities.org/other/www2.gif">
+
+
+
+</marquee>
+
+                
+
+                <div id="drag" class="window" style="height:457px;">
+                <div style="pointer-events: none;
+user-select: none;" class="title-bar">
+    <div class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+
+
+
+
+                    <div class="faq" style="background-color: white; width:345px; height:345px; position:absolute; top:25px; right:10px; border:2px solid #b6a898; overflow-y: scroll; ">
+
+                        <p style="font-weight:bold; text-align:center; margin-top:-5px;"> How to? </p>
+                        <p><strong style="color:#db2c65">1:</strong> Click on select pictures for frames and select all the images you want to add <br>
+                            <strong style="color:#db2c65">2:</strong> Click on select audio and select the audio you want for your video</p>
+                        
+                    </div>
+
+                    <img src="https://burypink.neocities.org/images/749869700.gif" style="position:absolute; bottom:5px; right:-60px; z-index:1;">
+
+                </div>
+            </td>
+            </tr>
+
+  
+
+    </tbody></table>
+ <div class="footbox">
+ 
+        <a href="https://web.archive.org/web/19991005233259/http://microsoft.com:80/Windows98/"><img src="https://cdn.discordapp.com/attachments/453624337099128834/964135781709021244/windows981.gif" style="width:440px;"></a> <a href="https://web.archive.org/web/20000828024842/http://www.geocities.co.jp:80/"><img src="./DOKODEMO - INDEX_files/geo21.gif" style="width:440px;"></a> <br>
+        <a href=""><img src="https://zanarkand.neocities.org/foryou/ads/468x60(1).gif" style="width:440px;"></a>
+        <a href="https://web.archive.org/web/20041204030935/http://www.amazon.co.jp/exec/obidos/tg/browse/-/489986"><img src="https://cdn.discordapp.com/attachments/453624337099128834/964133939830747237/amazonjp.gif" style="width:440px;"></a>
+
+        <span id="footer">
+
+
+
+    <style>
+        .ftdiv {
+            margin-top:10px;
+            background-color: #F9F7F5;
+            border: 3px solid #B6A898;
+            border-bottom-right-radius: 15px !important;
+            border-bottom-left-radius: 15px !important;
+            border-radius: 4px;
+            width: 854px;
+            text-align: center;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fthr {
+            width: 600px;
+            border: 1px solid #B6A898;
+            border-bottom: none;
+        }
+
+        .btmlink {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .btmlink:hover {
+            color: #e00080;
+        }
+
+    </style>
+
+
+
+
+    <div id="drag" class="window" style="margin-top:10px;
+
+            border-bottom-right-radius: 15px !important;
+            border-bottom-left-radius: 15px !important;
+            border-radius: 4px;
+            width: 854px;
+            text-align: center;
+            padding: 2px;
+            margin-left: auto;
+            margin-right: auto;">
+                <div  class="title-bar">
+    <div class="title-bar-text"></div>
+    <div style="pointer-events: auto;" class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+        <img src=""> <a href="" class="btmlink">Homepage</a> | <a href="" class="btmlink">About The Webmaster</a> | <a href="" class="btmlink">Blog</a> | <a href="" class="btmlink">Discord Server</a> | <a href="" class="btmlink">NC Site Profile</a> | <a href="" class="btmlink">Guestbook</a> <img src="">
+        <br>
+        <a href="" class="btmlink">E-mail me <span style="font-size:9px;">(serious concerns only)</span></a>
+        <hr class="fthr">
+        <marquee direction="left" scrollamount="5" style="width:600px; margin:5px;">sdfg</marquee>
+    </div>
+
+
+
+</span>
+        
+    </div>
+    
+  
+    
+
+	
+
+  <script type='text/javascript' src='terminal.js'></script>
+</body>
+</html>
