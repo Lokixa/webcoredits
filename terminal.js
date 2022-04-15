@@ -87,10 +87,10 @@ var videoWriter;
 function showKonataPictures(path) {
 	toggleSlider();
 	videoWriter = new WebMWriter({frameRate: framerate,fileWriter: null});
-	console.log('Current framerate: ',framerate);
+	//console.log('Current framerate: ',framerate);
 	let image_count = path.target.files.length;
 	for(let i = 0;i<path.target.files.length;i++){
-		console.log(path.target.files[i]);
+		//console.log(path.target.files[i]);
 		let file = path.target.files[i];
 		var reader = new FileReader();
 		reader.readAsDataURL(file);
@@ -125,13 +125,13 @@ function showKonataPictures(path) {
 	}
 }
 function setAudioTrack(path) {
-	console.log(path.target.files);
+	//console.log(path.target.files);
 	var reader = new FileReader();
 	let file = path.target.files[0];
 	reader.readAsDataURL(file);
 	reader.onload = readerEvent => {
 		var content = readerEvent.target.result; // this is the content!
-		console.log(content);
+		//console.log(content);
 		content = content.replace(/.*base64,/,'');
 		const blob = b64toBlob(content, 'audio/mpeg');
 		const blobUrl = URL.createObjectURL(blob);
@@ -170,7 +170,7 @@ function processWebm() {
 	videoWriter.complete()
 		.then(function(webMBlob) {
 			//video.src = URL.createObjectURL(webMBlob);
-			console.log('Video: ', video.src);
+			//console.log('Video: ', video.src);
 			//console.log(webMBlob);
 			
 			var oReq = new XMLHttpRequest();
@@ -180,12 +180,12 @@ function processWebm() {
 			oReq.onload = function (oEvent) {
 				var arrayBuffer = oReq.response;
 				if (arrayBuffer) {
-					console.log("Initialised fortnite video");
+					//console.log("Initialised fortnite video");
 					sampleVideoData = new Uint8Array(arrayBuffer);
 				}
 				else {
-					console.log("Array buffer empty on fortnite video request");
-					console.log(oReq);
+					//console.log("Array buffer empty on fortnite video request");
+					//console.log(oReq);
 					sampleVideoData = new Uint8Array(webMBlob.arrayBuffer());
 				}
 			};
