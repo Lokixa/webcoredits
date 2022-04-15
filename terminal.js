@@ -113,8 +113,12 @@ function showKonataPictures(path) {
 				context.drawImage(img,0,0,500,500);
 				videoWriter.addFrame(canvas);
 				image_count -= 1;
+				let len =  path.target.files.length;
 				if(image_count == 0){
-					document.getElementById('image-loaded').innerText = "Loaded every image";
+					document.getElementById('image-loading').innerText = `Loaded ${len}/${len}`;
+				}
+				else {
+					document.getElementById('image-loading').innerText = `Loading ${len-image_count}/${len}`;
 				}
 			};
 		}
@@ -143,12 +147,17 @@ function setAudioTrack(path) {
 		};
 
 		oReq.send(null);
+		document.getElementById('audio-loading').innerText = `${file.name} loaded.`;
 	}
 }
 function resetApp() {
 	let canvas = document.getElementById('canvas');
 	canvas.getContext("2d").clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-	document.getElementById('image-loaded').innerText = '';
+	
+	document.getElementById('image-loading').innerText = '';
+	document.getElementById('audio-loading').innerText = '';
+	document.getElementById('video-loading').innerText = '';
+	
 	videoWriter = new WebMWriter({frameRate: framerate,fileWriter: null});
 	let video = document.getElementById('video-fortnite');
 	video.pause();
@@ -189,6 +198,7 @@ function initWorker() {
 	worker = new Worker("worker-asm.js");
 	worker.onmessage = function (event) {
 		var message = event.data;
+		let output = document.getElementById('video-loading');
 		if (message.type == "ready") {
 			isWorkerLoaded = true;
 			worker.postMessage({
@@ -205,21 +215,24 @@ function initWorker() {
 					}
 				]
 			});
+			output.innerHTML = 'Video preparing to process...';
 		}
 		else if (message.type == "stdout") {			
-			console.log("Worker: ", message.data);
+			//console.log("Worker: ", message.data);
 
 		} else if (message.type == "start") {	
-			console.log("Worker: ","Worker has received command");
+			//console.log("Worker: ","Worker has received command");
+			output.innerText = "Video has started processing...";
 
 		} else if (message.type == "done") {
 			stopRunning();
 			var buffers = message.data;
 			if (buffers.length) {
-				console.log("Worker: ","closed");
+				//console.log("Worker: ","closed");
+				output.innerText = "Video done processing";
 			}
 			buffers.forEach(function(file) {
-				console.log(file);
+				//console.log(file);
 				var blob = new Blob([file.data],{type: "video/mp4"});
 				document.getElementById('video-fortnite').src = window.URL.createObjectURL(blob);
 			});
