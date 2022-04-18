@@ -119,6 +119,9 @@ function showKonataPictures(path) {
 				}
 				else {
 					document.getElementById('image-loading').innerText = `Loading ${len-image_count}/${len}`;
+					document.getElementById('image-loading').innerHTML = `<img id="image-loading" src="https://c.tenor.com/GO77-LvOh9oAAAAi/cat-rainbow.gif" style="margin:auto; display:block;  z-index: 9;
+  position: relative; float: none; pointer-events: none;
+user-select: none; width:680px; height: 500px;">`;
 				}
 			};
 		}

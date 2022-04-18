@@ -1,10 +1,17 @@
 html {
 
-    background-image: url(https://media.discordapp.net/attachments/453624337099128834/963491679111872562/ezgif-3-0e154497ef.gif);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-image: url(https://media.discordapp.net/attachments/453624337099128834/965313243264450631/ezgif-5-e65a93e0a4.gif);
+    background-repeat: repeat;
+    
+   
     background-color: white;
-    background-size: cover;
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: 900px;
+ 
+
+  
     font-size: 13px;
     line-height: 1.6;
     font-family: "MS UI Gothic";
